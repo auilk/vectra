@@ -1,12 +1,9 @@
-import AxisArrow from "./components/AxisArrow"
+import MoveGizmo from "./components/MoveGizmo";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="w-100 h-100 bg-amber-200 relative">
-        <AxisArrow direction="x"></AxisArrow>
-        <AxisArrow direction="y"></AxisArrow>
-      </div>
+    <div className="m-100 w-80 h-80 bg-green-200 relative">
+      <MoveGizmo></MoveGizmo>
     </div>
   );
 }
