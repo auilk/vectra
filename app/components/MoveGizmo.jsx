@@ -9,7 +9,6 @@ export default function MoveGizmo()
 
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
-    const [offset, setOffset] = useState(0);
 
     return (
         <div

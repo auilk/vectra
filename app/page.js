@@ -1,9 +1,9 @@
-import MoveGizmo from "./components/MoveGizmo";
+import SvgCanvas from "./components/SvgCanvas";
 
 export default function Home() {
   return (
-    <div className="m-100 w-80 h-80 bg-green-200 relative">
-      <MoveGizmo></MoveGizmo>
+    <div className="w-dvw h-dvh bg-green-200">
+      <SvgCanvas></SvgCanvas>
     </div>
   );
 }
