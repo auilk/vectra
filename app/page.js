@@ -1,4 +1,5 @@
 import AddElementBtn from "./components/AddElementBtn";
+import SvgBounds from "./components/SvgBounds";
 import SvgCanvas from "./components/SvgCanvas";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <div className="flex justify-center">
         <AddElementBtn></AddElementBtn>
       </div>
+      <SvgBounds></SvgBounds>
     </div>
   );
 }
