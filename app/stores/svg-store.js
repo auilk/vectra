@@ -1,7 +1,9 @@
 import { create } from "zustand";
 
-export const useSvgStore = create((set) => ({
+export const useSvgStore = create((set) => 
+({
   elements: {},
+  selected: {},
 
   AddElement: (id, props) => 
     set(state => 
@@ -23,5 +25,12 @@ export const useSvgStore = create((set) => ({
       const newElements = { ...state.elements };
       delete newElements[id];
       return { elements: newElements };
+    }),
+
+  setSelected: (id, props) =>
+    set(state =>
+    {
+      const selected = { id: id, props: { ...props } }
+      return { selected };
     })
 }));

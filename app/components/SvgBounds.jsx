@@ -1,6 +1,7 @@
 "use client";
 
 import { useSvgStore } from "../stores/svg-store";
+import { useShallow } from "zustand/react/shallow"
 
 /**
  * SvgBounds component.
@@ -11,7 +12,13 @@ import { useSvgStore } from "../stores/svg-store";
  */
 export default function SvgBounds()
 {
-    const elements = useSvgStore((state) => (state.elements));
+    const { elements, selected, setSelected } = useSvgStore(useShallow((state) => 
+        ({ 
+            elements: state.elements,
+            selected: state.selected,
+            setSelected: state.setSelected 
+        })
+    ));
 
     return (
         <>
@@ -25,7 +32,7 @@ export default function SvgBounds()
                         top: element.props.y,
                         left: element.props.x
                     }}
-                    onClick={() => console.log("selected element:", id)}
+                    onClick={() => setSelected(id, element.props)}
                 />
             ))}
         </>
