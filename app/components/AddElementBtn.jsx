@@ -3,6 +3,14 @@
 import { useRef } from "react";
 import { useSvgStore } from "../stores/svg-store";
 
+/**
+ * AddElementBtn component.
+ *
+ * Button to add a new rectangle SVG element.
+ * (Supports only rects for now; will support more shapes later.)
+ *
+ * @returns {JSX.Element}
+ */
 export default function AddElementBtn()
 {
     const id = useRef(0);

@@ -3,6 +3,14 @@
 import { useRef, useState } from "react";
 import AxisArrow from "./AxisArrow";
 
+/**
+ * MoveGizmo component for moving SVG elements.
+ * 
+ * Displays draggable arrows for X and Y axis movement.
+ * Tracks and updates current position coordinates.
+ * 
+ * @returns {JSX.Element}
+ */
 export default function MoveGizmo()
 {
     const elementRef = useRef(null);

@@ -2,6 +2,14 @@
 
 import { useSvgStore } from "../stores/svg-store";
 
+/**
+ * SvgCanvas component.
+ *
+ * Container that renders SVG elements.
+ * Acts as the main SVG workspace.
+ *
+ * @returns {JSX.Element}
+ */
 export default function SvgCanvas()
 {
     const elements = useSvgStore((state) => (state.elements));
