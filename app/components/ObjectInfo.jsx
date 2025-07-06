@@ -1,5 +1,6 @@
 "use client";
 
+import { useShallow } from "zustand/react/shallow";
 import { useSvgStore } from "../stores/svg-store";
 
 /**
@@ -11,7 +12,12 @@ import { useSvgStore } from "../stores/svg-store";
  */
 export default function ObjectInfo()
 {
-    const selected = useSvgStore((state) => (state.selected));
+    const { elements, selected } = useSvgStore(useShallow((state) => 
+        ({
+            elements: state.elements,
+            selected: state.selected,
+        })
+    ));
 
     return (
         <>
@@ -24,12 +30,12 @@ export default function ObjectInfo()
 
                     <p>
                         <span className="font-bold">position: </span>
-                        <span className="text-yellow-300">(x: {(selected.props.x).toFixed(3)}, y: {(selected.props.y).toFixed(3)})</span>
+                        <span className="text-yellow-300">(x: {(elements[selected.id].props.x).toFixed(3)}, y: {(elements[selected.id].props.y).toFixed(3)})</span>
                     </p>
 
                     <p>
                         <span className="font-bold">dimensions: </span>
-                        <span className="text-yellow-300">(width: {(selected.props.width).toFixed(3)}, height: {(selected.props.height).toFixed(3)})</span>
+                        <span className="text-yellow-300">(width: {(elements[selected.id].props.width).toFixed(3)}, height: {(elements[selected.id].props.height).toFixed(3)})</span>
                     </p>
                 </div>)
             }

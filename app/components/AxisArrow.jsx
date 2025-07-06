@@ -24,6 +24,8 @@ export default function AxisArrow({ direction = "y" , setX, setY})
 
     const [isDragging, setIsDragging] = useState(false);
 
+    console.log("render");
+
     useEffect(() =>
     {
         if (!isDragging) return;

@@ -1,4 +1,5 @@
 import AddElementBtn from "./components/AddElementBtn";
+import MoveGizmo from "./components/MoveGizmo";
 import ObjectInfo from "./components/ObjectInfo";
 import SvgBounds from "./components/SvgBounds";
 import SvgCanvas from "./components/SvgCanvas";
@@ -14,6 +15,7 @@ export default function Home() {
         <AddElementBtn></AddElementBtn>
       </div>
       <SvgBounds></SvgBounds>
+      <MoveGizmo></MoveGizmo>
     </div>
   );
 }

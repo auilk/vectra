@@ -27,10 +27,10 @@ export const useSvgStore = create((set) =>
       return { elements: newElements };
     }),
 
-  setSelected: (id, props) =>
+  SetSelected: (id) =>
     set(state =>
     {
-      const selected = { id: id, props: { ...props } }
+      const selected = { id: id }
       return { selected };
     })
 }));

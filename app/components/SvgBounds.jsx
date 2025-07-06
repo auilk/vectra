@@ -12,11 +12,11 @@ import { useShallow } from "zustand/react/shallow"
  */
 export default function SvgBounds()
 {
-    const { elements, selected, setSelected } = useSvgStore(useShallow((state) => 
+    const { elements, selected, SetSelected } = useSvgStore(useShallow((state) => 
         ({ 
             elements: state.elements,
             selected: state.selected,
-            setSelected: state.setSelected 
+            SetSelected: state.SetSelected
         })
     ));
 
@@ -25,15 +25,15 @@ export default function SvgBounds()
             {Object.entries(elements).map(([id, element]) => (
                 <div
                     key={id}
-                    className="absolute translate-1/2 cursor-pointer border-2 hover:border-amber-300 transition-[border-color]"
+                    className="absolute cursor-pointer border-2 border-transparent hover:border-amber-300 transition-[border-color]"
                     style={{
                         width: element.props.width,
                         height: element.props.height,
-                        top: element.props.y,
-                        left: element.props.x,
+                        top: element.props.y + 8,
+                        left: element.props.x + 8,
                         borderColor: selected.id === id ? "#ff2d00" : ""
                     }}
-                    onClick={() => setSelected(id, element.props)}
+                    onClick={() => SetSelected(id)}
                 />
             ))}
         </>
