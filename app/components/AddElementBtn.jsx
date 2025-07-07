@@ -20,7 +20,7 @@ export default function AddElementBtn()
     return (
         <button
             className="w-1/2 h-fit px-10 py-2 text-white font-bold rounded-lg border-2 border-[#292929] bg-[#161616] cursor-pointer hover:bg-[#202020] transition-[background-color]"
-            onClick={() => AddElement(`rect${++id.current}`, { x: Math.max(0, Math.random() * window.innerWidth - 28), y: Math.max(0, Math.random() * window.innerHeight - 90), width: 100, height: 100 })}
+            onClick={() => AddElement(`rect${++id.current}`, { x: Math.max(0, Math.random() * window.innerWidth - 28), y: Math.max(0, Math.random() * window.innerHeight - 90), width: Math.random() * 300, height: Math.random() * 300 })}
         >
             ADD
         </button>

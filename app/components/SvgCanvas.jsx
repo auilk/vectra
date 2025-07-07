@@ -10,19 +10,29 @@ import { useSvgStore } from "../stores/svg-store";
  *
  * @returns {JSX.Element}
  */
-export default function SvgCanvas()
+export default function SvgCanvas({children, width, height})
 {
     const elements = useSvgStore((state) => (state.elements));
 
     return (
-        <svg className="w-full h-full">
-            {Object.entries(elements).map(([id, element]) => (
-                <rect
-                key={id}
-                {...element.props}
-                fill="black"
-                />
-            ))}
-        </svg>
+        <div 
+            className="w-full h-full relative"
+            style={{
+                width: width,
+                height: height
+            }}
+        >
+            <svg className="w-full h-full">
+                {Object.entries(elements).map(([id, element]) => (
+                    <rect
+                    key={id}
+                    {...element.props}
+                    fill="black"
+                    />
+                ))}
+            </svg>
+
+            {children}
+        </div>
     );
 }

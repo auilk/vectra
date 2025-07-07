@@ -15,8 +15,6 @@ import { useShallow } from "zustand/react/shallow";
  */
 export default function MoveGizmo()
 {
-    const elementRef = useRef(null);
-
     const { elements, selected, SetElement } = useSvgStore(useShallow((state) => 
         ({
             elements: state.elements,
@@ -27,25 +25,33 @@ export default function MoveGizmo()
 
     const setX = (x) =>
     {
-        SetElement(selected.id, {...elements[selected.id].props, x: x - elements[selected.id]?.props?.width / 2 + 8 });
+        SetElement(selected.id, {...elements[selected.id].props, x: x});
     }
 
     const setY = (y) =>
     {
-        SetElement(selected.id, {...elements[selected.id].props, y: y - elements[selected.id]?.props?.height / 2 + 8});
+        SetElement(selected.id, {...elements[selected.id].props, y: y });
     }
 
     return (
         <div
-            ref={elementRef}
-            className="w-8 h-8 shadow-[0px_0px_1px_2px] rounded-full shadow-amber-300 absolute -top-100 left-0 -translate-1/4 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-amber-400 before:left-1/2 before:top-1/2 before:-translate-1/2 before:absolute"
+            className="flex flex-col gap-1 absolute -translate-y-1/1 z-2"
             style={{
-                top: `${elements[selected.id]?.props?.y + elements[selected.id]?.props?.height / 2}px`,
-                left: `${elements[selected.id]?.props?.x + elements[selected.id]?.props?.width / 2}px`,
+                top: `${elements[selected.id]?.props?.y + elements[selected.id]?.props?.height / 2 + 8}px`,
+                left: `${elements[selected.id]?.props?.x + elements[selected.id]?.props?.width / 2 - 8}px`,
             }}
         >
-            <AxisArrow direction="x" setX={setX}></AxisArrow>
-            <AxisArrow direction="y" setY={setY}></AxisArrow>
+            <div className="flex">
+                <AxisArrow direction="y" setY={setY}></AxisArrow>
+            </div>
+
+            <div className="flex gap-1">
+                <div className="w-4 h-4 border-2 border-white rounded-sm flex justify-center items-center">
+                    <div className="w-1 h-1 rounded-full bg-white"></div>
+                </div>
+
+                <AxisArrow direction="x" setX={setX}></AxisArrow>
+            </div>
         </div>
     );
 }
